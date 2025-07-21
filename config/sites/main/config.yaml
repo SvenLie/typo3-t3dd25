@@ -1,0 +1,22 @@
+base: 'https://typo3-t3dd25.ddev.site'
+dependencies:
+  - friendsoftypo3/headless
+errorHandling:
+  -
+    errorCode: 403
+    errorHandler: LoginRedirect
+    loginRedirectTarget: 't3://page?uid=3'
+    loginRedirectParameter: redirect_url
+frontendBase: 'https://typo3-t3dd25.ddev.site'
+headless: 1
+languages:
+  -
+    title: English
+    enabled: true
+    languageId: 0
+    base: /
+    locale: en_US.UTF-8
+    navigationTitle: English
+    flag: us
+rootPageId: 1
+websiteTitle: ''

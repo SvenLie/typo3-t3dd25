@@ -1,0 +1,24 @@
+meta {
+  name: Login as user
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{BASE_URL}}/login?tx_felogin_login[action]=login&tx_felogin_login[controller]=Login&cHash=263d1dc5e8dad6bfa53f4c1a90532a86
+  body: formUrlEncoded
+  auth: inherit
+}
+
+params:query {
+  tx_felogin_login[action]: login
+  tx_felogin_login[controller]: Login
+  cHash: 263d1dc5e8dad6bfa53f4c1a90532a86
+}
+
+body:form-urlencoded {
+  logintype: login
+  user: john-doe
+  pass: John-Doe-1701D.
+  __RequestToken: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6IntcInR5cGVcIjpcIm5vbmNlXCIsXCJuYW1lXCI6XCJiUUM4N214bDBxV08ybVlYWjQ3WFpBXCJ9In0.eyJzY29wZSI6ImNvcmUvdXNlci1hdXRoL2ZlIiwidGltZSI6IjIwMjUtMDctMjFUMTU6MDE6NTArMDI6MDAiLCJwYXJhbXMiOnsicGlkIjoiIiwicmVxdWVzdCI6eyJ1cmkiOiIvbG9naW4_dHhfZmVsb2dpbl9sb2dpbiU1QmFjdGlvbiU1RD1sb2dpbiZhbXA7dHhfZmVsb2dpbl9sb2dpbiU1QmNvbnRyb2xsZXIlNUQ9TG9naW4mYW1wO2NIYXNoPTI2M2QxZGM1ZThkYWQ2YmZhNTNmNGMxYTkwNTMyYTg2In19fQ.tEZFA0vSutetiOE-nlmg0xZ5ZHP5ooBQGITvGAQwS3o
+}
