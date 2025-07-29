@@ -110,6 +110,7 @@ return [
             'extbase.consistentDateTimeHandling' => true,
             'frontend.cache.autoTagging' => true,
             'security.system.enforceAllowedFileExtensions' => true,
+            'headless.redirectMiddlewares' => true,
         ],
         'sitename' => 'TYPO3 Developer Days 2025',
         'systemMaintainers' => [

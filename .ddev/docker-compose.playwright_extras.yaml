@@ -1,0 +1,5 @@
+#ddev-generated
+services:
+  playwright:
+    external_links:
+      - "ddev-router:${DDEV_PROJECT}.${DDEV_TLD}"

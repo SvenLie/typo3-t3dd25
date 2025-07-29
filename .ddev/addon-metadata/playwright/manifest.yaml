@@ -1,0 +1,25 @@
+name: playwright
+repository: julienloizelet/ddev-playwright
+version: v2.3.0
+install_date: "2025-07-29T13:22:19+02:00"
+project_files:
+    - commands/playwright/playwright
+    - commands/playwright/playwright-install
+    - commands/playwright/playwright-init
+    - playwright-build/Dockerfile
+    - playwright-build/kasmvnc.yaml
+    - playwright-build/xstartup
+    - playwright-build/entrypoint.sh
+    - docker-compose.playwright.yaml
+global_files: []
+removal_actions:
+    - |
+      #ddev-nodisplay
+      #ddev-description:Remove docker-compose.playwright_extras.yaml file
+      if [ -f docker-compose.playwright_extras.yaml ]; then
+        if grep -q '#ddev-generated' docker-compose.playwright_extras.yaml; then
+          rm -f docker-compose.playwright_extras.yaml
+        else
+          echo "Unwilling to remove '$DDEV_APPROOT/.ddev/docker-compose.playwright_extras.yaml' because it does not have #ddev-generated in it; you can manually delete it if it is safe to delete."
+        fi
+      fi

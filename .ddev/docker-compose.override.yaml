@@ -1,0 +1,4 @@
+services:
+  playwright:
+    environment:
+      - PLAYWRIGHT_TEST_DIR=tests
