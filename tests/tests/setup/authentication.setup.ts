@@ -1,16 +1,37 @@
 import {expect, test} from "@playwright/test";
 
 test('authenticate', async ({ request }) => {
-    const loginPagePost = await request.post(`/login`, {
-        params: {
-            'tx_felogin_login[action]': 'login',
-            'tx_felogin_login[controller]': 'Login',
-            'cHash': '263d1dc5e8dad6bfa53f4c1a90532a86'
-        },
+    const loginPage = await request.get(`/login`);
+    expect(loginPage.ok()).toBeTruthy();
+
+
+    let formAction = '';
+    let requestToken = '';
+
+    (await loginPage.json()).content.colPos0.forEach((contentElement: JSON) => {
+        if (contentElement.type !== 'felogin_login') {
+            return;
+        }
+
+        formAction = contentElement.content.data.form.action;
+
+        contentElement.content.data.form.elements.forEach((element: JSON) => {
+            if (element.name === '__RequestToken') {
+                requestToken = element.value;
+            }
+        })
+
+    })
+
+    expect(formAction).toBeTruthy();
+    expect(requestToken).toBeTruthy();
+
+    const loginPagePost = await request.post(formAction, {
         form: {
             logintype: 'login',
             user: process.env.USERNAME,
             pass: process.env.PASSWORD,
+            __RequestToken: requestToken
         }
     });
 
