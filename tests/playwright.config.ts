@@ -24,6 +24,9 @@ export default defineConfig({
         {
             name: 'tests',
             testMatch: 'tests/**/*.spec.ts',
+            use: {
+                ...devices['Desktop Chrome'],
+            },
             //dependencies: ['setup']
         }
     ]
