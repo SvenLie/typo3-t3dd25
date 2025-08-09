@@ -17,14 +17,17 @@ export default defineConfig({
         screenshot: 'only-on-failure'
     },
     projects: [
-        {
+        /*{
             name: 'setup',
             testMatch: 'setup/*.setup.ts'
-        },
+        },*/
         {
             name: 'tests',
             testMatch: 'tests/**/*.spec.ts',
-            dependencies: ['setup']
+            use: {
+                ...devices['Desktop Chrome'],
+            },
+            //dependencies: ['setup']
         }
     ]
 });
